@@ -56,7 +56,7 @@ public class Paginas : MonoBehaviour
             collectSound.Play();
             collectText.SetActive(false);
             page.SetActive(false);
-            score.AddScore(1);
+            score.AddScore(7);
             inReach = false;
         }
     }
