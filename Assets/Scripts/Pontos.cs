@@ -9,10 +9,12 @@ public class Pontos : MonoBehaviour
     public Text ScoreText;
     public int score = 0;
     public int maxScore;
+    public GameObject Carro;
 
     void Start()
     {
-        score = 0;   
+        score = 0;
+        Carro.SetActive(false);   
     }
 
     public void AddScore(int newScore)
@@ -23,12 +25,15 @@ public class Pontos : MonoBehaviour
     public void UpdateScore()
     {
         ScoreText.text = "Paginas pegas: "+score;
+
+        if(score == maxScore)
+        {
+            ScoreText.text = "CORRA PARA SAIDA";
+            Carro.SetActive(true); 
+        }
     }
 
-    public void Win()
-    {
-        
-    }
+
 
     void Update()
     {
