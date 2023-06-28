@@ -1,28 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Paginas : MonoBehaviour
 {
-    public GameObject  collectText;
+    public Pontos score;
+
+    public GameObject collectText;
 
     public AudioSource collectSound;
 
     private GameObject page;
 
     private bool inReach;
+    
 
 
     void Start()
     {
+
         collectText.SetActive(false);
+
 
         inReach = false;
 
         page = this.gameObject;
         
     }
-
 
     void OnTriggerEnter(Collider other)
     {
@@ -45,11 +50,13 @@ public class Paginas : MonoBehaviour
 
     void Update()
     {
+
         if (inReach && Input.GetButtonDown("pegar"))
         {
             collectSound.Play();
             collectText.SetActive(false);
             page.SetActive(false);
+            score.AddScore(1);
             inReach = false;
         }
     }
